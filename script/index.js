@@ -21,6 +21,8 @@ function renderLogs() {
         let p = document.createElement("p")
         p.textContent = name
         p.addEventListener("click", () => {
+            const nameInput = document.querySelector("#name")
+            nameInput.value = name
             getName(name)
         })
         save.appendChild(p)
