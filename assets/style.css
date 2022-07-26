@@ -1,62 +1,124 @@
-body,html{
+body,
+html {
     margin: 0;
-    height: 97%;
+    height: 100%;
     width: 100%;
-    background-color: grey;
+    background-color: #272727 ;
     font-size: 1.5rem;
 }
 
-input{
+body {
+    display: flex;
+
+}
+
+*{
+    box-sizing: border-box;
+}
+p {
+    display: inline;
+    margin: 10px;
+}
+
+input {
     height: 1.5rem;
     font-size: 1rem;
 }
 
-p{
+.logs p {
     cursor: pointer;
+    display: inline-block;
+    margin: 10px;
 }
 
-.main-container{
-display: flex;
-flex-direction: column;
-margin: 30px;
-background-color: blue;
+
+.main-container {
+    margin: auto;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #90A9B7;
 
 }
 
-.header{
+.header {
     font-size: 2rem;
     text-align: center;
 }
 
-.content{
+.content {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.left{
-    background-color: brown;
+
+.left {
+    background-color: #90A9B7;
     flex: 1;
     margin: 10px;
 }
 
-.form{
-    border: 5px solid;
+.form {
+    border: 1px solid #6d6d6d;
     padding: 10px;
     margin: 5px;
     height: 200px;
 }
 
-.logs{
-    border: 5px solid;
+.logs {
+    border: 1px solid gray;
     padding: 10px;
     margin: 5px;
-    height: 500px
+    height: 600px
 }
 
 
-.right{
-    background-color: green;
+.right {
+    background-color: #D2D8B3;
     flex: 2;
+    border: 1px solid #e0e0e0;
+    height: 820px;
+    padding: 10px;
     margin: 10px;
-    
+
+}
+
+.genderDiv {
+    display: flex;
+    align-items: center;
+}
+
+.gender {
+    display: inline;
+}
+
+.genderImg {
+    display: inline;
+    text-align: center;
+}
+
+.genderImg>img {
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.countries {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery>img {
+    height: 200px;
+    width: 400px;
 }

@@ -44,6 +44,12 @@ form.addEventListener("submit", async (event) => {
     event.preventDefault()
     const data = new FormData(form)
     const name = data.get("name")
+    let isnum = /\d/.test(name)
+    let isspace = /\s/.test(name)
+    console.log(isnum && isspace)
+    if(isnum){
+        return alert('No numbers or spaces allowed in name field')
+    }
     await getName(name)
 
 })
@@ -52,14 +58,14 @@ async function getName(name) {
 
     const logs = getLogs();
     // console.log("logs ", logs)
-    
+
     const text = document.createElement('p');
     const text0 = document.createElement('p');
     const text1 = document.createElement('p');
     const genderImg = document.createElement('img')
     const promises = [getGender(name), getAge(name), getNationality(name)]
     const res = await Promise.all(promises)
-    const [gender,age,natinality] = res
+    const [gender, age, natinality] = res
 
     // const gender = await getGender(name)
     // // console.log(gender)
@@ -75,24 +81,38 @@ async function getName(name) {
 
     let nameField = document.querySelector('.name')
     text1.textContent = name
-    nameField.innerHTML = "<h1>Name: </h1>"
+    nameField.innerHTML = "<p>Name: </p>"
     nameField.appendChild(text1)
 
     let ageField = document.querySelector(".age");
     text.textContent = age;
-    ageField.innerHTML = '<h1>Age: </h1>'
+    ageField.innerHTML = '<p>Age: </p>'
     ageField.appendChild(text)
 
     let genderField = document.querySelector('.gender')
+    let genderImage = document.querySelector(".genderImg")
     text0.textContent = gender;
-    genderField.innerHTML = "<h1>Gender: </h1>"
+    switch (gender) {
+        case "male":
+            genderImage.innerHTML ="";
+            genderImg.src = "https://media.istockphoto.com/vectors/male-thin-line-vector-icon-vector-id868651322?k=20&m=868651322&s=612x612&w=0&h=oSeMfkJ15dYpsnGyqHHCYRa-5nd36vgcvE6vchwAOos="
+            genderImage.appendChild(genderImg)
+            break;
+        case "female":
+            genderImage.innerHTML ="";
+            genderImg.src = "https://media.istockphoto.com/vectors/female-symbol-on-transparent-background-vector-id1284444739?k=20&m=1284444739&s=612x612&w=0&h=U2PKO427nJQ65SLH4XSKWAWj01BRs_2ULQ0yMphO7iE="
+            genderImage.appendChild(genderImg)
+            break;
+    }
+    genderField.innerHTML = "<p>Gender: </p>"
     genderField.appendChild(text0);
 
     let country = document.querySelector('.countries')
     country.innerHTML = ''
-    const array = []
+    const array = [];
     for (let i = 0; await natinality.length > i; i++) {
         let div = document.createElement('div')
+        div.className='gallery'
         let img = document.createElement('img')
         let p = document.createElement('p')
         array.push([await natinality[i].country_id, await countries[i]])
@@ -109,7 +129,7 @@ async function getName(name) {
 
 
     // natinality.forEach(element => {
-    //     const text1 = document.createElement('h1');
+    //     const text1 = document.createElement('p');
     //     text1.textContent = element.country_id
     //     nationalityField.appendChild(text1)
 
