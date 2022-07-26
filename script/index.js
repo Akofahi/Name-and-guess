@@ -63,6 +63,7 @@ async function getName(name) {
     const text0 = document.createElement('p');
     const text1 = document.createElement('p');
     const genderImg = document.createElement('img')
+
     const promises = [getGender(name), getAge(name), getNationality(name)]
     const res = await Promise.all(promises)
     const [gender, age, natinality] = res
@@ -110,12 +111,13 @@ async function getName(name) {
     let country = document.querySelector('.countries')
     country.innerHTML = ''
     const array = [];
-    for (let i = 0; await natinality.length > i; i++) {
+
+    for (let i = 0;  natinality.length > i; i++) {
         let div = document.createElement('div')
         div.className='gallery'
         let img = document.createElement('img')
         let p = document.createElement('p')
-        array.push([await natinality[i].country_id, await countries[i]])
+        array.push([ natinality[i].country_id,  countries[i]])
         p.textContent = array[i][0]
         img.src = array[i][1]
         console.log(p.textContent)
@@ -124,7 +126,7 @@ async function getName(name) {
         country.appendChild(div)
 
     }
-    console.log(array)
+    console.log(countries)
 
 
 
